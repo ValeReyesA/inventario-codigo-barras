@@ -13,7 +13,8 @@ p1.quitarStock(100);
 
 p1.agregarStock(-3);
 p1.quitarStock(0);
-p1.quitarStock(4);
+p1.quitarStock(5);
+
 System.out.println("El stock actual es: " + p1.getStock());
  
 }
