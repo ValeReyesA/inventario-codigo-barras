@@ -1,10 +1,12 @@
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+    Scanner vr = new Scanner(System.in);
 
         Producto p1 = new Producto("sol-256", "valeria", "utensilios de comida", 15.50, 0, LocalDate.of(2023, 5, 20));
         System.out.println("El stock actual es: " + p1.getStock());
@@ -30,6 +32,10 @@ public class Main {
         for (int i = 0; i < productos.size(); i++) {
             System.out.println(productos.get(i).getNombre());
         }
+System.out.println("Escribe el nombre de un producto:");
+String nombre = vr.nextLine();
+System.out.println("Escribiste: " + nombre);
+    
 
     }
 }
