@@ -69,20 +69,22 @@ public class Producto {
         stock += cantidad;
     }
 
-    public void quitarStock(int cantidad) {
+    public boolean quitarStock(int cantidad) {
         if (cantidad <= 0) {
             System.out.println("cantidad invalida ");
-            return;
+            return false;
         }
 
-        if (cantidad <= stock) {
+        if (cantidad <= stock) { 
             stock -= cantidad;
+          if (stock == 0) {
+            System.out.println("realizar pedido");
+        }
+            return true;
         } else {
             System.out.println("stock insuficiente");
+            return false;
         }
-        if (stock == 0) {
-            System.out.println("realizar pedido");
-
-        }
+        
     }
 }

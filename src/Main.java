@@ -50,6 +50,10 @@ public class Main {
                 vr.nextLine();
                 System.out.println("Escribe la fecha (año)");
                 int anio = vr.nextInt();
+                while(anio < 2000 ){
+                  System.out.println("Año invalido, escribe 4 digitos(ej. 2026):");
+                  anio = vr.nextInt();
+                }
                 vr.nextLine();
                 System.out.println("Escribe la fecha (mes)");
                 int mes = vr.nextInt();
@@ -69,7 +73,7 @@ public class Main {
 
             } else if (opcion == 2 ){
                   if(productos.isEmpty()){
-                    System.out.println("no hya producto registrados");
+                    System.out.println("no hay producto registrados");
                   }else {
                 for (int i = 0; i < productos.size(); i++) {
             System.out.println(productos.get(i).getNombre() + ", " + productos.get(i).getCodigo() + ", " + productos.get(i).getCategoria() + ", " + productos.get(i).getPrecio() + ", " + productos.get(i).getStock() + ", " + productos.get(i).getFechaVencimiento());
@@ -89,7 +93,7 @@ public class Main {
                
                 if (productos.get(i).getCodigo().equalsIgnoreCase(codigoBuscado)){
                     productos.get(i).agregarStock(cantidad);
-                    System.out.println("stock agregado "+ productos.get(i).getNombre()+": "+(productos.get(i).getStock()));
+                    System.out.println("stock agregado " + productos.get(i).getNombre() + " : "+ (productos.get(i).getStock()));
                     encontrado=true;
                 }
               }
@@ -111,8 +115,10 @@ public class Main {
               for (int i=0 ; i< productos.size();i++){
                
                 if (productos.get(i).getCodigo().equalsIgnoreCase(codigoBuscado)){
-                    productos.get(i).quitarStock(cantidad);
-                    System.out.println("stock quitado"+ productos.get(i).getNombre()+":"+(productos.get(i).getStock()));
+                    boolean stockQuitado = productos.get(i).quitarStock(cantidad);
+                    if (stockQuitado) {
+                        System.out.println("stock quitado" + productos.get(i).getNombre() + ": " + (productos.get(i).getStock()));
+                    }
                     encontrado=true;
                 }
               }
