@@ -6,11 +6,12 @@ import com.google.zxing.BarcodeFormat;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
     Scanner vr = new Scanner(System.in);
     ArrayList<Producto> productos = new ArrayList<>();
 
      int opcion;
+     GeneradorCodigo.generar("SOL-256");
      do{
         System.out.println("""
             1. Agregar productos
