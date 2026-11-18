@@ -1,4 +1,4 @@
-
+package com.valeria;
 import java.time.LocalDate;
 
 public class Producto {
