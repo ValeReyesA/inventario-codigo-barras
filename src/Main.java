@@ -23,8 +23,21 @@ public class Main {
           
 
             if (opcion == 1){
+                
                 System.out.println("Escribe el codigo del producto:");
                 String codigo = vr.nextLine();
+
+                boolean existe= false;
+                for (int i=0; i< productos.size();i++){
+                    if (productos.get(i).getCodigo().equalsIgnoreCase(codigo)){
+
+                        existe=true;
+                        break;
+                    }
+                }
+                if(existe){
+                 System.out.println("el codigo ya exixte, usa otro");
+                }else{
                 System.out.println("Escribe el nombre del producto:");
                 String nombre = vr.nextLine();
                 System.out.println("Escribe la categoria del producto:");
@@ -49,6 +62,8 @@ public class Main {
                Producto p1 = new Producto( codigo, nombre, categoria, precio, stock, LocalDate.of(anio,  mes, dia));
     
                productos.add(p1);
+
+                }
                
 
 
@@ -110,6 +125,7 @@ public class Main {
             }
 
      } while (opcion!=5);
+
 
        
 
