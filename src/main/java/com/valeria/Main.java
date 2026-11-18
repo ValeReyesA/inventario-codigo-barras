@@ -2,7 +2,7 @@ package com.valeria;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
-import com.google.zxing.BarcodeFormat;
+
 
 public class Main {
 
@@ -11,7 +11,7 @@ public class Main {
     ArrayList<Producto> productos = new ArrayList<>();
 
      int opcion;
-     GeneradorCodigo.generar("SOL-256");
+    
      do{
         System.out.println("""
             1. Agregar productos
