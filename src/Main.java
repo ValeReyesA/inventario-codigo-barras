@@ -14,7 +14,9 @@ public class Main {
         System.out.println("""
             1. Agregar productos
             2. Ver productos
-            3. salir 
+            3. Agregar stock
+            4. Quitar stock
+            5. salir 
             
             """);
             opcion = Integer.parseInt(vr.nextLine());
@@ -52,15 +54,62 @@ public class Main {
 
             } else if (opcion == 2 ){
                   if(productos.isEmpty()){
-                    System.out.println("no hya producto registrado");
+                    System.out.println("no hya producto registrados");
                   }else {
                 for (int i = 0; i < productos.size(); i++) {
             System.out.println(productos.get(i).getNombre() + ", " + productos.get(i).getCodigo() + ", " + productos.get(i).getCategoria() + ", " + productos.get(i).getPrecio() + ", " + productos.get(i).getStock() + ", " + productos.get(i).getFechaVencimiento());
             }
         }
+            } else if (opcion == 3){
+
+              System.out.println("escribe el codigo del producto") ;
+              String codigoBuscado = vr.nextLine();
+              System.out.println("su cantidad ");
+              int cantidad = vr.nextInt();
+              vr.nextLine();
+              boolean encontrado = false;
+
+
+              for (int i=0 ; i< productos.size();i++){
+               
+                if (productos.get(i).getCodigo().equalsIgnoreCase(codigoBuscado)){
+                    productos.get(i).agregarStock(cantidad);
+                    System.out.println("stock agregado "+ productos.get(i).getNombre()+": "+(productos.get(i).getStock()));
+                    encontrado=true;
+                }
+              }
+
+               if(!encontrado){
+                System.out.println("producto no encontrado");
+            
+               }
+
+            }else if ( opcion == 4){
+                System.out.println("escribe el codigo del producto") ;
+              String codigoBuscado = vr.nextLine();
+              System.out.println("su cantidad ");
+              int cantidad = vr.nextInt();
+              vr.nextLine();
+              boolean encontrado = false;
+
+
+              for (int i=0 ; i< productos.size();i++){
+               
+                if (productos.get(i).getCodigo().equalsIgnoreCase(codigoBuscado)){
+                    productos.get(i).quitarStock(cantidad);
+                    System.out.println("stock quitado"+ productos.get(i).getNombre()+":"+(productos.get(i).getStock()));
+                    encontrado=true;
+                }
+              }
+
+               if(!encontrado){
+                System.out.println("producto no encontrado");
+               }
+
+
             }
 
-     } while (opcion!=3);
+     } while (opcion!=5);
 
        
 
